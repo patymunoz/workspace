@@ -61,6 +61,7 @@ def genera_tabla_est():
     Función que genera una tabla conforme al total de población a nivel estatal por año conforme a los datos originales.    
     """
     pob_tot_ent = tabla[tabla_estatal.pob_tot_entidad]
+    pob_tot_ent = pd.pivot_table(pob_tot_ent, index='cve_ent', aggfunc=sum).reset_index()
     return pob_tot_ent
 
 def genera_tabla_mun():
@@ -75,6 +76,7 @@ def genera_tabla_quin_est():
     Función que genera una tabla conforme al total de población a nivel estatal por quinquenio por año conforme a los datos originales.
     """
     pob_quinquenio_ent = tabla[tabla_estatal.pob_quinquenio_entidad]
+    pob_quinquenio_ent = pd.pivot_table(pob_quinquenio_ent, index='cve_ent', aggfunc=sum).reset_index()
     return pob_quinquenio_ent
 
 def genera_tabla_quin_mun():
