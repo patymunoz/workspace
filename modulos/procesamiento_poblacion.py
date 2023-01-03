@@ -9,7 +9,7 @@ import pandas as pd
 import openpyxl
 from auxiliares import tabla_estatal, tabla_municipal
 
-ruta = os.path.join('.','datos','datos_origen','poblacion','poblacion_2000-2020_conapo_insp.xlsx')
+ruta = os.path.join('.','datos','datos_origen','poblacion_2000-2020_conapo_insp.xlsx')
 
 tabla = pd.read_excel(ruta)
 tabla.rename(columns={'clave':'cvegeomun'}, inplace=True)

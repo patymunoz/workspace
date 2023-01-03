@@ -29,18 +29,18 @@ def nivel_seg(eleccion):
     Parámetro: respuesta de usuarix.
     """
     if eleccion == "estatal":
-        a = procesamiento_poblacion.genera_tabla_est()
-        b = procesamiento_poblacion.genera_tabla_quin_est()
+        var_a = procesamiento_poblacion.genera_tabla_est()
+        var_b = procesamiento_poblacion.genera_tabla_quin_est()
 
-        return a, b
+        return var_a, var_b
     
     elif eleccion == "municipal":
-        a = procesamiento_poblacion.genera_tabla_mun()
-        b = procesamiento_poblacion.genera_tabla_quin_mun()
+        var_a = procesamiento_poblacion.genera_tabla_mun()
+        var_b = procesamiento_poblacion.genera_tabla_quin_mun()
     
-        return a, b
+        return var_a, var_b
 
-x, y = nivel_seg(eleccionUsuario)
+total, quinquenal = nivel_seg(eleccionUsuario)
 
 def estructuracion_totales():
     """
@@ -49,7 +49,7 @@ def estructuracion_totales():
     Parámetros: ninguno
     Regresa: Dataframe con los datos estructurados. 
     """
-    resultado1 = procesamiento_poblacion.estructura_totales(x)
+    resultado1 = procesamiento_poblacion.estructura_totales(total)
       
     return resultado1
 
@@ -60,7 +60,7 @@ def estructuracion_quinquenales():
     Parámetros: ninguno
     Regresa: Dataframe con los datos estructurados. 
     """
-    resultado2= procesamiento_poblacion.estructura_quinquenios(y)
+    resultado2= procesamiento_poblacion.estructura_quinquenios(quinquenal)
     
     return resultado2
 
@@ -70,8 +70,7 @@ print(" ")
 resultados_totales = estructuracion_totales()
 resultados_quinquenales = estructuracion_quinquenales()
 
-r1= resultados_totales.to_excel('output_pob_total_' + '{}'.format(eleccionUsuario) +'.xlsx', index=False)
-r2= resultados_quinquenales.to_excel('output_pob_quinquenio_' + '{}'.format(eleccionUsuario) +'.xlsx', index=False) 
-
-r1= os.path.join('.', 'datos', 'datos_procesados')
-r2= os.path.join('.', 'datos', 'datos_procesados')
+r1= resultados_totales.to_excel(os.path.join('.', 'datos', 'datos_procesados',
+                                             'output_pob_total_' + '{}'.format(eleccionUsuario) +'.xlsx'), index=False)
+r2= resultados_quinquenales.to_excel(os.path.join('.', 'datos', 'datos_procesados',
+                                             'output_pob_quinquenio_' + '{}'.format(eleccionUsuario) +'.xlsx'), index=False)
