@@ -70,7 +70,7 @@ print(" ")
 resultados_totales = estructuracion_totales()
 resultados_quinquenales = estructuracion_quinquenales()
 
-r1= resultados_totales.to_excel(os.path.join('.', 'datos', 'datos_procesados',
+r1= resultados_totales.to_excel(os.path.join('.', 'datos', 'datos_origen_limpios',
                                              'output_pob_total_' + '{}'.format(eleccionUsuario) +'.xlsx'), index=False)
-r2= resultados_quinquenales.to_excel(os.path.join('.', 'datos', 'datos_procesados',
+r2= resultados_quinquenales.to_excel(os.path.join('.', 'datos', 'datos_origen_limpios',
                                              'output_pob_quinquenio_' + '{}'.format(eleccionUsuario) +'.xlsx'), index=False)
